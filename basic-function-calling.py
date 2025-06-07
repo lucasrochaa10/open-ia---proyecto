@@ -31,7 +31,7 @@ tools = [{
 
 # Paso 1: Llamar al modelo con la función definida
 response = client.responses.create(
-    model="gpt-4.1",
+    model="gpt-4o-mini",
     input=input_messages,
     tools=tools
 )
@@ -89,7 +89,7 @@ for tool_call in response.output:
 
 # Paso 4: Enviar los resultados de vuelta al modelo
 response_2 = client.responses.create(
-    model="gpt-4.1",
+    model="gpt-4o-mini",
     input=input_messages,
     tools=tools
 )

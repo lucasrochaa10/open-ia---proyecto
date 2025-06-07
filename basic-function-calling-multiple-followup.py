@@ -146,3 +146,26 @@ while True:
 # La última respuesta contiene el texto final del modelo
 print("\nRespuesta final del modelo:")
 print(response.output_text)
+
+# Guardar el ID de la respuesta para mantener el contexto
+previous_response_id = response.id
+
+# Paso 5: Pregunta de seguimiento para probar la memoria del modelo
+follow_up_message = [{
+    "role": "user",
+    "content": "Do you remember what was the current temperature in Paris?"
+}]
+
+print("\nPregunta de seguimiento:")
+print(follow_up_message[0]["content"])
+
+# Llamar al modelo con el contexto anterior
+response_follow_up = client.responses.create(
+    model="gpt-4o-mini",
+    input=follow_up_message,
+    tools=tools,
+    previous_response_id=previous_response_id
+)
+
+print("\nRespuesta del modelo (con memoria):")
+print(response_follow_up.output_text)
