@@ -1,3 +1,7 @@
+# load from .env
+import dotenv
+dotenv.load_dotenv()
+
 from openai import OpenAI
 client = OpenAI()
 
