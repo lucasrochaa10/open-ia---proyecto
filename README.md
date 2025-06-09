@@ -13,11 +13,14 @@ uv venv
 source .venv/bin/activate
 ```
 
+```powershell
+uv venv
+.venv\Scripts\Activate
+```
+
 ### 2. Install dependencies
 ```bash
-uv pip install -r requirements.txt
-# or if using pyproject.toml
-uv pip install .
+uv pip install -r pyproject.toml
 ```
 
 ### 3. Set your OpenAI API key
